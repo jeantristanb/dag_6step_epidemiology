@@ -7,19 +7,21 @@ library(bnlearn)
 ## charge data : in the case data example generate with script : simulate_phenotype.r
 DataPheno<-read.csv('ressource/test_data.csv')
 ## relation between variable
+jpeg('ressource/corrplot_datasettest.jpeg')
 corrplot(cor(DataPheno[,-1]))
+dev.off()
 
 ## plot of  
 gsexcl<-gs(DataPheno[,-1])
 
 jpeg('ressource/dagnbnlearn_noexcl.jpeg')
-graphviz.plot(gs2)
+graphviz.plot(gsexcl)
 dev.off()
 
 ## in this case we see a A<->B so we black list B->A 
 RelatEx<-matrix(c("B","A"), ,nrow=1)
 gsexcl<-gs(DataPheno[,-1],blacklist=RelatEx)
-jpeg('ressource/dagnbnlearn_noexcl.jpeg')
+jpeg('ressource/dagnbnlearn_exclAB.jpeg')
 graphviz.plot(gsexcl)
 dev.off()
 

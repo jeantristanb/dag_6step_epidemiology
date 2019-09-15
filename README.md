@@ -73,11 +73,11 @@ C D -0.25  0.01
 * build DAG :
   * we used values generated in previous step set to build DAG with bnlearn  
 
-![DAG build with bnlearn without exclusion of relation](ressource/Dag_noexcl.jpeg)
+![DAG build with bnlearn without exclusion of relation](ressource/dagnbnlearn_noexcl.jpeg)
 
   * we observed a relation A<=>B so we excluded B=>A
 
-![DAG build with bnlearn with exclusion of relation A=>B](ressource/Dag_datasettest.jpeg)
+![DAG build with bnlearn with exclusion of relation A=>B](ressource/dagnbnlearn_exclAB.jpeg)
   
   * we writed files of new DAG 
 
