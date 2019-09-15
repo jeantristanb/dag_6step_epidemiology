@@ -62,7 +62,7 @@ C D
 ## Example
 * script `simulate_phenotype.r` to build simulates values of phenotype files `ressource/Pheno.sim.info`contains a relation father child and beta value, sd values
 
-``̀ 
+`̀ `
 A B 0.2 0.01
 B D 0.15 0.005
 E C -0.3 0.01
@@ -70,7 +70,7 @@ A C -0.5 0.01
 C F 0.25  0.1 
 E F -0.3  0.01 
 C D -0.25  0.01 
-``̀ 
+```
 
  * we used beta values and sd values (random normal law) and DAG to computed a phenotype for 10 000 individuals see `ressource/test_data.csv `
 
