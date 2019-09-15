@@ -32,7 +32,7 @@ Build a Bayesian network and inference, to obtain a acyclic and directed graphic
   * `--input_file`
      * relation parents and child : example where A parents of  B and C : A B,C
 
-``̀
+```
 A B,C
 B D
 C D
@@ -93,8 +93,6 @@ C D -0.25  0.01
 ``̀ 
 python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressource/CovEffC_F --effector C --outcome F --model mmc
 ``̀ 
-
-
 
 
 ## How to Cite?
