@@ -20,13 +20,14 @@ Build a Bayesian network and inference, to obtain a acyclic and directed graphic
 ### example : see script 
 
 ##steps 2 defined covariable(s) for a specific Effector and Outcome
-### Script : 6Step.version.py
-### requirement 
+* Script : 6Step.version.py
+* requirement 
   * python, library itertools, sys, argparse used
 
-### options :
+* options :
   * `--input_file`
      * relation parents and child : example where A parents of  B and C : A B,C
+
 '''
 A B,C
 B D
@@ -40,11 +41,13 @@ C D
    * mc minimum covariable (Default)
    * mmc : merged minimum covariable 
    * lc : maximum covariable
-### example :
+
+* example :
+
 '''
 python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressource/CovEffC_F --effector C --outcome F --model mmc
 '''
-### algorithms for mc :
+* algorithms for mc :
 
   * we defined one effector and outcome, all other variables of the DAG are considered as putative cofactors 
   * we discarded all putative cofactors that did not validate step 1 of 6-step algorithm DAG: descent of effector in DAG
@@ -60,11 +63,11 @@ python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressourc
 articles in review : revalence and Risk Factors for Chronic Kidney Disease in Four Sub-Saharan African Countries: an AWI-Gen Cross-Sectional Population Study
 contact me and see bibliography
 
-## bibliograpgy
-Westreich, D. & Greenland, S. The table 2 fallacy: Presenting and interpreting confounder and modifier coefficients. Am. J. Epidemiol. 177, 292–298 (2013).
-Shrier, I. & Platt, R. W. Reducing bias through directed acyclic graphs. BMC Med. Res. Methodol. 8, 70 (2008).
-Evans, D., Chaix, B., Lobbedez, T., Verger, C. & Flahault, A. Combining directed acyclic graphs and the change-in-estimate procedure as a novel approach to adjustment-variable selection in epidemiology. BMC Med. Res. Methodol. 12, 156 (2012).
-Thornley, S., Marshall, R. j, Wells, S. & Rod, J. Using Directed Acyclic Graphs for Investigating Causal Paths for Cardiovascular Disease. J. Biom. Biostat. 04, (2013).
-Margaritis, D. Learning Bayesian Network Model Structure from Data. (Carnegie-Mellon University, Pittsburgh, PA, 2003).
+## bibliography
+* Westreich, D. & Greenland, S. The table 2 fallacy: Presenting and interpreting confounder and modifier coefficients. Am. J. Epidemiol. 177, 292–298 (2013).
+* Shrier, I. & Platt, R. W. Reducing bias through directed acyclic graphs. BMC Med. Res. Methodol. 8, 70 (2008).
+* Evans, D., Chaix, B., Lobbedez, T., Verger, C. & Flahault, A. Combining directed acyclic graphs and the change-in-estimate procedure as a novel approach to adjustment-variable selection in epidemiology. BMC Med. Res. Methodol. 12, 156 (2012).
+* Thornley, S., Marshall, R. j, Wells, S. & Rod, J. Using Directed Acyclic Graphs for Investigating Causal Paths for Cardiovascular Disease. J. Biom. Biostat. 04, (2013).
+* Margaritis, D. Learning Bayesian Network Model Structure from Data. (Carnegie-Mellon University, Pittsburgh, PA, 2003).
 Scutari, M. Learning Bayesian Networks with the bnlearn R Package. J. Stat. Software, Artic. 35, 1–22 (2010).
 
