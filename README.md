@@ -9,7 +9,9 @@ we selected best set of co founder for each couple with algorithm 6-step of Shri
 ## algoritms 
 
 ##steps 1 build dag  with epidemiological data and format data for 6 step algorims
-### Script : build_dag.r 
+
+* Script : build_dag.r 
+
 ### description 
 Build a Bayesian network and inference, to obtain a acyclic and directed graphics we black list some relation
 
@@ -27,12 +29,12 @@ Build a Bayesian network and inference, to obtain a acyclic and directed graphic
 * options :
   * `--input_file`
      * relation parents and child : example where A parents of  B and C : A B,C
-
-'''
+``̀
 A B,C
 B D
 C D
-'''
+``̀
+
   *  `--out_file` : output files contain list of covariable could be uses [need]
   * `--effector` : effector to analyse [need]
   * `--outcome` : outcome need to analyse in graphics [need]
@@ -54,10 +56,10 @@ C D
 ## Other script : 
   * `simulate_phenotype.r`: script to simulate a phenotype values with DAG know and relation between variables
 
-## example :
+## Example
 * script `simulate_phenotype.r` to build simulates values of phenotype files `ressource/Pheno.sim.info`contains a relation father child and beta value, sd values
 
-'''
+``̀ 
 A B 0.2 0.01
 B D 0.15 0.005
 E C -0.3 0.01
@@ -65,7 +67,7 @@ A C -0.5 0.01
 C F 0.25  0.1 
 E F -0.3  0.01 
 C D -0.25  0.01 
-'''
+``̀ 
  * we used beta values and sd values (random normal law) and DAG to computed a phenotype for 10 000 individuals see `ressource/test_data.csv `
 
 ![initial DAG](ressource/Dag_datasettest.jpeg)
@@ -75,18 +77,18 @@ C D -0.25  0.01
 
 ![DAG build with bnlearn without exclusion of relation](ressource/dagnbnlearn_noexcl.jpeg)
 
-  * we observed a relation A<=>B so we excluded B=>A
+  * we observed a relation A<=>B so we excluded B=>A to avoid to be cyclic
 
 ![DAG build with bnlearn with exclusion of relation A=>B](ressource/dagnbnlearn_exclAB.jpeg)
   
-  * we writed files of new DAG 
+  * we writed DAG in file 
 
 * search best covariable :
   * we used python script to generate putative covariable for effector and outcome F
 
-'''
+``̀ 
 python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressource/CovEffC_F --effector C --outcome F --model mmc
-'''
+``̀ 
 
 
 
