@@ -2,6 +2,7 @@
 script to build a DAG with bnlean with epidemiogogic data and apply 6 step algorithm to choice co variables with effectors and outcome descrided in Shrier and Platt
 
 ## why ?
+
 Usually, in epidemiology, researcher presented outcome and one or more exposure/co - founder from a single logistic regression/ generalized linear models.
 Theses approaches may affect and bias estimates of exposure on outcome (see Westreich, D. & Greenland,).
 To avoid bias and computed risk factor with generalized linear models for each couple effectors/outcome with a specific set of confounder.
@@ -13,15 +14,16 @@ we selected best set of co founder for each couple with algorithm 6-step of Shri
 * Script : build_dag.r 
 
 ### description 
+
 Build a Bayesian network and inference, to obtain a acyclic and directed graphics we black list some relation
 
 ### requirement 
   * R-project
     * corrplot library
     * bnlearn library
-### example : see script 
 
 ##steps 2 defined covariable(s) for a specific Effector and Outcome
+
 * Script : 6Step.version.py
 * requirement 
   * python, library itertools, sys, argparse used
@@ -29,11 +31,12 @@ Build a Bayesian network and inference, to obtain a acyclic and directed graphic
 * options :
   * `--input_file`
      * relation parents and child : example where A parents of  B and C : A B,C
+
 ``̀
 A B,C
 B D
 C D
-``̀
+```
 
   *  `--out_file` : output files contain list of covariable could be uses [need]
   * `--effector` : effector to analyse [need]
@@ -68,6 +71,7 @@ C F 0.25  0.1
 E F -0.3  0.01 
 C D -0.25  0.01 
 ``̀ 
+
  * we used beta values and sd values (random normal law) and DAG to computed a phenotype for 10 000 individuals see `ressource/test_data.csv `
 
 ![initial DAG](ressource/Dag_datasettest.jpeg)
