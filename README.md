@@ -42,11 +42,6 @@ C D
    * mmc : merged minimum covariable 
    * lc : maximum covariable
 
-* example :
-
-'''
-python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressource/CovEffC_F --effector C --outcome F --model mmc
-'''
 * algorithms for mc :
 
   * we defined one effector and outcome, all other variables of the DAG are considered as putative cofactors 
@@ -57,13 +52,51 @@ python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressourc
   * we computed risk factors (relative risk) of effectors on the outcome using the covariable set defined previously, covariable set used for each couple of outcome/effector is reported in Supplementary Tables 7, 8 and 9.
 
 ## Other script : 
-  * `simulate_phenotype.r`: script to simulate a phenotype with DAG know and relation between variables
+  * `simulate_phenotype.r`: script to simulate a phenotype values with DAG know and relation between variables
 
-## how to Cite 
+## example :
+* script `simulate_phenotype.r` to build simulates values of phenotype files `ressource/Pheno.sim.info`contains a relation father child and beta value, sd values
+
+'''
+A B 0.2 0.01
+B D 0.15 0.005
+E C -0.3 0.01
+A C -0.5 0.01
+C F 0.25  0.1 
+E F -0.3  0.01 
+C D -0.25  0.01 
+'''
+ * we used beta values and sd values (random normal law) and DAG to computed a phenotype for 10 000 individuals see `ressource/test_data.csv `
+
+![initial DAG](ressource/Dag_datasettest.jpeg)
+
+* build DAG :
+  * we used values generated in previous step set to build DAG with bnlearn  
+
+![DAG build with bnlearn without exclusion of relation](ressource/Dag_noexcl.jpeg)
+
+  * we observed a relation A<=>B so we excluded B=>A
+
+![DAG build with bnlearn with exclusion of relation A=>B](ressource/Dag_datasettest.jpeg)
+  
+  * we writed files of new DAG 
+
+* search best covariable :
+  * we used python script to generate putative covariable for effector and outcome F
+
+'''
+python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressource/CovEffC_F --effector C --outcome F --model mmc
+'''
+
+
+
+
+## How to Cite?
 articles in review : revalence and Risk Factors for Chronic Kidney Disease in Four Sub-Saharan African Countries: an AWI-Gen Cross-Sectional Population Study
 contact me and see bibliography
 
-## bibliography
+## bibliographies
+
 * Westreich, D. & Greenland, S. The table 2 fallacy: Presenting and interpreting confounder and modifier coefficients. Am. J. Epidemiol. 177, 292–298 (2013).
 * Shrier, I. & Platt, R. W. Reducing bias through directed acyclic graphs. BMC Med. Res. Methodol. 8, 70 (2008).
 * Evans, D., Chaix, B., Lobbedez, T., Verger, C. & Flahault, A. Combining directed acyclic graphs and the change-in-estimate procedure as a novel approach to adjustment-variable selection in epidemiology. BMC Med. Res. Methodol. 12, 156 (2012).
