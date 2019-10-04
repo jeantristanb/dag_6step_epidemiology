@@ -1,30 +1,31 @@
-# dag_6step_epidemiology
-script to build a DAG with bnlean with epidemiogogic data and apply 6 step algorithm to choice co variables with effectors and outcome descrided in Shrier and Platt
+# Search best set of co variable in epidemiological studies with DAG and 6-steps algoritms.
+Script to build a DAG with bnlean with epidemiogogic data and apply 6 step algorithm to choice co variables with effectors and outcome descrided in Shrier and Platt
 
-## why ?
+## Why ?
 
 Usually, in epidemiology, researcher presented outcome and one or more exposure/co - founder from a single logistic regression/ generalized linear models.
 Theses approaches may affect and bias estimates of exposure on outcome (see Westreich, D. & Greenland,).
 To avoid bias and computed risk factor with generalized linear models for each couple effectors/outcome with a specific set of confounder.
 we selected best set of co founder for each couple with algorithm 6-step of Shrier and Platt apply on Directed Acyclic Graphs (DAG).
-## algoritms 
 
-##steps 1 build dag  with epidemiological data and format data for 6 step algorims
+## Algoritms 
 
-* Script : build_dag.r 
+## Steps 1 build dag  with epidemiological data and format data for 6 step algorims
 
-### description 
+* Script : `build_dag.r`
+
+### Description 
 
 Build a Bayesian network and inference, to obtain a acyclic and directed graphics we black list some relation
 
-### requirement 
+### Requirement 
   * R-project
     * corrplot library
     * bnlearn library
 
-##steps 2 defined covariable(s) for a specific Effector and Outcome
+## Steps 2 defined covariable(s) for a specific Effector and Outcome
 
-* Script : 6Step.version.py
+* Script : `6Step.version.py`
 * requirement 
   * python, library itertools, sys, argparse used
 
@@ -96,12 +97,13 @@ python  6Step.v1.1.py --input_file ressource/dag_bnlearn.tab --out_file ressourc
 ```
 
 
-
 ## How to Cite?
 articles in review : revalence and Risk Factors for Chronic Kidney Disease in Four Sub-Saharan African Countries: an AWI-Gen Cross-Sectional Population Study
-contact me and see bibliography
 
-## bibliographies
+(accepted in lancet global health)
+See bibliography section for DAG see library `bnlearn` and 6-step procedure `Shrier et al, 2008`
+
+## Bibliography
 
 * Westreich, D. & Greenland, S. The table 2 fallacy: Presenting and interpreting confounder and modifier coefficients. Am. J. Epidemiol. 177, 292–298 (2013).
 * Shrier, I. & Platt, R. W. Reducing bias through directed acyclic graphs. BMC Med. Res. Methodol. 8, 70 (2008).
